@@ -9,10 +9,16 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 def add_article():
-	
+	My_knowledge = Knowledge (
+		topic = topic,
+		title = title,
+		rate = rate)
+	session.add(My_knowledge)
+	session.commit()
 
 def query_all_articles():
-	pass
+	knowledge = session.query(Knowledge).all()
+	return knowledge
 
 def query_article_by_topic():
 	pass
@@ -25,3 +31,4 @@ def delete_all_articles():
 
 def edit_article_rating():
 	pass
+
